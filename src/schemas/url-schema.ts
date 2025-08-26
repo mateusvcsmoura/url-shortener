@@ -6,6 +6,10 @@ const saveUrlSchema = z.object({
 
 const shortCodeSchema = z.object({
     shortCode: z.string({ error: "shortCode must be an string" })
-})
+});
 
-export { saveUrlSchema, shortCodeSchema };
+const deleteUrlSchema = z.object({
+    id: z.int({ error: "URL ID must be a number" })
+});
+
+export { saveUrlSchema, shortCodeSchema, deleteUrlSchema };

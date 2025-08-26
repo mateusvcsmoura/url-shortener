@@ -1,6 +1,6 @@
 import { Handler, NextFunction } from "express";
 import { HttpError } from "../errors/HttpError";
-import { saveUrlSchema, shortCodeSchema } from "../schemas/url-schema";
+import { deleteUrlSchema, saveUrlSchema, shortCodeSchema } from "../schemas/url-schema";
 import { UrlService } from "../services/url-service";
 
 const urlService = new UrlService();
@@ -27,6 +27,19 @@ class UrlController {
             const longUrl = await urlService.getUrlToRedirect(validatedData.shortCode);
 
             return res.redirect(longUrl);
+        } catch (e) {
+            next(e);
+        }
+    }
+
+    delete: Handler = async (req, res, next: NextFunction) => {
+        if (!req.body) throw new HttpError(400, "No body req");
+
+        try {
+            const validatedData = deleteUrlSchema.parse(req.body);
+            const deletedUrl = await urlService.deleteUrlRegister(validatedData.id);
+
+            return res.status(204).json(deletedUrl);
         } catch (e) {
             next(e);
         }

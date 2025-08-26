@@ -55,6 +55,20 @@ class UrlService {
             throw new HttpError(500, "An unexpected error ocurred while getting URL.");
         }
     }
+
+    deleteUrlRegister = async (urlId: number) => {
+        try {
+            const deletedUrl = await urlModel.deleteUrl(urlId);
+
+            return deletedUrl;
+        } catch (e) {
+            if (e instanceof Prisma.PrismaClientKnownRequestError) {
+                if (e.code === "P2025") {
+                    throw new HttpError(404, "URL register not found");
+                }
+            }
+        }
+    }
 };
 
 export { UrlService };

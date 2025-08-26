@@ -6,5 +6,6 @@ const router = Router();
 
 router.post('/shorten', urlController.save);
 router.get('/:shortCode', urlController.redirect);
+router.delete('/delete-url', urlController.delete);
 
 export { router };
