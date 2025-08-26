@@ -2,6 +2,12 @@ import { prisma } from "../database";
 import { UrlRegister } from "../interfaces/url";
 
 class UrlModel {
+    findAll = async () => {
+        const urls = await prisma.url.findMany();
+
+        return urls;
+    }
+
     findUrlByLong = async (longUrlTarget: string) => {
         const url = prisma.url.findUnique({ where: { longUrl: longUrlTarget } });
 
