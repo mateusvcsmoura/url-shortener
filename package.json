@@ -9,7 +9,7 @@
   },
   "name": "url-shortener",
   "version": "1.0.0",
-  "description": "",
+  "description": "A simple URL Shortener using Typescript, Express and Prisma ORM",
   "main": "build/server.js",
   "dependencies": {
     "@prisma/client": "^6.14.0",
@@ -27,8 +27,16 @@
     "build": "tsc",
     "start": "node build/server.js"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "URL",
+    "Shortener",
+    "Prisma",
+    "Typescript",
+    "ORM",
+    "Express",
+    "Backend"
+  ],
+  "author": "mateusvcsmoura",
   "license": "ISC",
   "type": "module"
 }

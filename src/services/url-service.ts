@@ -39,7 +39,7 @@ class UrlService {
                 }
             }
 
-            throw new HttpError(500, "An unexpected error occurred while saving the URL.");
+            throw e;
         }
     }
 
@@ -52,7 +52,13 @@ class UrlService {
 
             return url.longUrl;
         } catch (e) {
-            throw new HttpError(500, "An unexpected error ocurred while getting URL.");
+            if (e instanceof Prisma.PrismaClientKnownRequestError) {
+                if (e.code === "P2025") {
+                    throw new HttpError(404, "URL register not found");
+                }
+            }
+
+            throw e;
         }
     }
 
