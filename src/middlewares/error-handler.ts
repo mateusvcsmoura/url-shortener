@@ -1,5 +1,5 @@
 import { ErrorRequestHandler } from "express";
-import { HttpError } from "../errors/HttpError";
+import { HttpError } from "../errors/HttpError.js";
 import z from "zod";
 
 export const errorHandler: ErrorRequestHandler = (e, req, res, next) => {

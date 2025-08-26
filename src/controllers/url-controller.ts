@@ -1,7 +1,7 @@
 import { Handler, NextFunction } from "express";
-import { HttpError } from "../errors/HttpError";
-import { deleteUrlSchema, saveUrlSchema, shortCodeSchema } from "../schemas/url-schema";
-import { UrlService } from "../services/url-service";
+import { HttpError } from "../errors/HttpError.js";
+import { deleteUrlSchema, saveUrlSchema, shortCodeSchema } from "../schemas/url-schema.js";
+import { UrlService } from "../services/url-service.js";
 
 const urlService = new UrlService();
 

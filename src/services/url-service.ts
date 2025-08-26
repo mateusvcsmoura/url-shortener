@@ -1,8 +1,8 @@
 import { nanoid } from "nanoid";
-import { UrlModel } from "../models/url-model";
-import { normalizeUrl } from "../utils/functions";
-import { HttpError } from "../errors/HttpError";
-import { Prisma } from "../generated/prisma";
+import { UrlModel } from "../models/url-model.js";
+import { normalizeUrl } from "../utils/functions.js";
+import { HttpError } from "../errors/HttpError.js";
+import { Prisma } from "@prisma/client";
 
 const urlModel = new UrlModel();
 

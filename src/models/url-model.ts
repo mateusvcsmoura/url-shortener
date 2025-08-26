@@ -1,5 +1,5 @@
-import { prisma } from "../database";
-import { UrlRegister } from "../interfaces/url";
+import { prisma } from "../database/index.js";
+import { UrlRegister } from "../interfaces/url.js";
 
 class UrlModel {
     findAll = async () => {

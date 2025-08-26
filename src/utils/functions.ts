@@ -1,4 +1,4 @@
-import { HttpError } from "../errors/HttpError";
+import { HttpError } from "../errors/HttpError.js";
 
 export function normalizeUrl(urlString: string) {
     if (!urlString || typeof urlString !== 'string') {
