@@ -42,6 +42,19 @@ class UrlService {
             throw new HttpError(500, "An unexpected error occurred while saving the URL.");
         }
     }
+
+    getUrlToRedirect = async (shortCode: string) => {
+        try {
+            const url = await urlModel.findUrlByShortCode(shortCode);
+            if (!url) throw new HttpError(404, "Short code not found");
+
+            await urlModel.incrementClicks(url.shortCode);
+
+            return url.longUrl;
+        } catch (e) {
+            throw new HttpError(500, "An unexpected error ocurred while getting URL.");
+        }
+    }
 };
 
 export { UrlService };

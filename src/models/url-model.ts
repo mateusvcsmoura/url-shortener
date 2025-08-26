@@ -32,6 +32,15 @@ class UrlModel {
         return newUrl;
     }
 
+    incrementClicks = async (shortCode: string) => {
+        const updatedUrl = await prisma.url.update({
+            where: { shortCode: shortCode },
+            data: { clicks: { increment: 1 } }
+        });
+
+        return updatedUrl;
+    }
+
     deleteUrl = async (id: number) => {
         const deletedUrl = await prisma.url.delete({ where: { id: id } });
 
