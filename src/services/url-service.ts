@@ -73,6 +73,8 @@ class UrlService {
                     throw new HttpError(404, "URL register not found");
                 }
             }
+
+            throw e;
         }
     }
 };
